@@ -26,7 +26,7 @@ public class ArrayFunc2{
 		        isPrime = false;
 		    }
 		    else {
-		        for (int j = 2; j * j <= currentNum; j++) {
+		        for (int j = 2;  j < currentNum; j++) {
 		            if (currentNum % j == 0) {
 		                isPrime = false;
 		                break; 
