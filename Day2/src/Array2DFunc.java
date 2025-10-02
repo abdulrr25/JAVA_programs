@@ -185,13 +185,35 @@ public class Array2DFunc {
 	}
 
 	public static int[] MaxRow(int[][] arr) {
-		// TODO Auto-generated method stub
+		int temp[] = new int[arr.length];
+		for(int i=0;i<arr.length;i++) {
+			int max=0;
+			for(int j=0;j<arr[i].length;j++) {
+				if(arr[i][j]>max) {
+					max=arr[i][j];
+				}
+			}
+			temp[i]=max;
+		}
 		
-		return null;
+		return temp;
 	}
 
-	public static int[] MaxCol(int[][] arr) {
-		// TODO Auto-generated method stub
-		return null;
+	public static int[] MaxCol(int[][] arr) { 
+		int temp[] =new int[arr.length];
+		
+		for(int j=0; j<arr.length;j++) {
+			int max=0;
+			
+			for(int i=0;i<arr.length;i++) {
+				if(arr[i][j]>max) {
+					max=arr[i][j];
+				}
+			}
+			temp[j]=max;
+		}
+		
+		return temp;
+		
 	}
 }
