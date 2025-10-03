@@ -199,15 +199,15 @@ public class Array2DFunc {
 		return temp;
 	}
 
-	public static int[] MaxCol(int[][] arr) { 
-		int temp[] =new int[arr.length];
+	public static int[] MaxCol(int[][] arr1) { 
+		int temp[] =new int[arr1.length];
 		
-		for(int j=0; j<arr.length;j++) {
+		for(int j=0; j<arr1.length;j++) {
 			int max=0;
 			
-			for(int i=0;i<arr.length;i++) {
-				if(arr[i][j]>max) {
-					max=arr[i][j];
+			for(int i=0;i<arr1.length;i++) {
+				if(arr1[i][j]>max) {
+					max=arr1[i][j];
 				}
 			}
 			temp[j]=max;

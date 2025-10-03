@@ -1,6 +1,6 @@
 
 import java.util.*;
-public class Array2DService {
+public class TestArray2DService {
 
 	public static void main(String[] args) {
 		Scanner sc =new Scanner(System.in);
