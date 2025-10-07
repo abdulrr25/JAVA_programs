@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Team {
 	private int tid;
@@ -45,5 +46,10 @@ public class Team {
 	}
 	public void setSize(int size) {
 		this.size = size;
+	}
+	@Override
+	public String toString() {
+		return "Team [tid=" + tid + ", tname=" + tname + ", captain=" + captain + ", plist=" + Arrays.toString(plist)
+				+ ", size=" + size + "]";
 	}
 }
