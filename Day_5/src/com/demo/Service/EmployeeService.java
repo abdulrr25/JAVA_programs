@@ -63,8 +63,12 @@ public class EmployeeService {
 	}
 	public static void displayAll() {
 		// TODO Auto-generated method stub
+		
 		for(Employee e:emparr) {
+			if(e!=null) {
+				
 			System.out.println(e);
+			}
 		}
 		
 	}

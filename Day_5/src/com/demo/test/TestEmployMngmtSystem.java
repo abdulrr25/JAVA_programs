@@ -11,11 +11,11 @@ public class TestEmployMngmtSystem {
 		Scanner sc = new Scanner(System.in);
 		int choice = 0;
 		do {
-			System.out.println("1. Add new employee\n 2. Display all ");
-			System.out.println("3. Display by id\n 4. Change sal or cgarges ");
-			System.out.println("5. Display salaried employee\n 6. Display contract Employee \n ");
-			System.out.println("1. Search by name\n 2. Calculate net salary 9. exit\n choice");
-			choice =sc.nextInt();
+			System.out.println(" 1. Add new employee\n 2. Display all ");
+			System.out.println(" 3. Display by id\n 4. Change sal or cgarges ");
+			System.out.println(" 5. Display salaried employee\n 6. Display contract Employee");
+			System.out.println(" 7. Search by name\n 8. Calculate net salary \n 9. exit \n Enter Your choice");
+			choice =sc.nextInt(); 
 			switch(choice) {
 			case 1:
 				System.out.println("1.Salaried\n 2.Contrat \n 3.Vendor \n choice");
