@@ -52,5 +52,31 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		}
 		return null;
 	}
+	@Override
+	public boolean updateSal(int id, double sal) {
+		// TODO Auto-generated method stub
+		Employee e=findById(id);
+		if(e!=null) {
+			
+		e.setSal(sal);
+		return true;
+		}
+		return false;
+	}
+	@Override
+	public boolean deleteBySalary(double sal) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean searchBySalary(double sal) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public List<Employee> sortBySalary() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

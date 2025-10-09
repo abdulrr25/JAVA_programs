@@ -57,4 +57,25 @@ public class EmployeeServiceImp1 implements EmployeeService {
     public List<Employee> findByName(String nm) {
         return edao.findByName(nm);
     }
+    
+    @Override
+    public boolean updateSal(int id, double sal) {
+    	return edao.updateSal(id,sal);
+    }
+
+	@Override
+	public boolean deleteBySalary(double sal) {
+		return edao.deleteBySalary(sal);
+	}
+
+	@Override
+	public boolean searchBySalary(double sal) {
+		return edao.searchBySalary(sal);
+	}
+
+	@Override
+	public List<Employee> sortBySalary() {
+		// TODO Auto-generated method stub
+		return edao.sortBySalary();
+	}
 }

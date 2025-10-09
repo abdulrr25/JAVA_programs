@@ -16,6 +16,10 @@ public class Employee {
 	super();
 	this.empid = empid;
 }
+	public Employee(double sal) {
+	super();
+	this.sal = sal;
+}
 
 	public Employee(int empid, String ename, double sal, LocalDate jdt) {
 		super();

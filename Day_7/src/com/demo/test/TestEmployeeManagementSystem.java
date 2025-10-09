@@ -14,9 +14,9 @@ public class TestEmployeeManagementSystem {
 		EmployeeService eservice=new EmployeeServiceImp1();
 		int choice=0;
 		do {
-			System.out.println("1. add new employee\n 2. display all\n3. search by id");
-			System.out.println("4. Search by name\n 5. update sal\n6. delete by id\n7. delete by salary\n");
-			System.out.println("8. search by salary \n 9. sort by salary\n10. exit\n choice: ");
+			System.out.println(" 1. add new employee\n 2. display all\n 3. search by id");
+			System.out.println(" 4. Search by name\n 5. update sal\n 6. delete by id\n 7. delete by salary\n");
+			System.out.println(" 8. search by salary \n 9. sort by salary\n 10. exit\n choice: ");
 			choice=sc.nextInt();
 								
 			switch(choice) {
@@ -53,6 +53,20 @@ public class TestEmployeeManagementSystem {
 					System.out.println("not found");
 				}
 			}
+			case 5->{
+				System.out.println("Enter you id");
+				int id=sc.nextInt();
+				System.out.println("Enter you Updated Salary");
+				double sal = sc.nextDouble();
+				
+				boolean status = eservice.updateSal(id,sal);
+				if(status) {
+					System.out.println("Salary Updated");
+				}
+				else {
+					System.out.println("Employee not found");
+				}
+			}
 			case 6->{
 				System.out.println("enetr id for delete");
 				int eid=sc.nextInt();
@@ -62,6 +76,29 @@ public class TestEmployeeManagementSystem {
 				}else {
 					System.out.println("not found");
 				}
+			}
+			case 7->{
+				System.out.println("Enter Salary For Deletion");
+				double sal = sc.nextDouble();
+				boolean status=eservice.deleteBySalary(sal);
+				if(status) {
+					System.out.println("Data Deleted");
+				}
+				else {
+					System.out.println("Matching Employee Not Found");
+				}
+
+			}
+			case 8->{
+				System.out.println("Enter Salary For Searching");
+				double sal = sc.nextDouble();
+				boolean e=eservice.searchBySalary(sal);
+				
+
+			}
+			case 9->{
+				eservice.sortBySalary();
+				
 			}
 			case 10->{sc.close();
 			     System.out.println("Thank ypu for visiting...."); 
