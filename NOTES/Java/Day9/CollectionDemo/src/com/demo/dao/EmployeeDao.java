@@ -16,14 +16,16 @@ public interface EmployeeDao {
 
 	List<Employee> findByName(String nm);
 
-	boolean updateSal(int id, double sal);
+	boolean modifyById(int eid, double sal);
 
-	boolean deleteBySalary(double sal);
+	boolean removeBySalary(double sal);
 
-	List<Employee> searchBySalary(double sal);
+	List<Employee> findBySal(double sal);
 
-	List<Employee> sortBySalary();
+	List<Employee> sortBySal();
 
 	List<Employee> sortByName();
+
+	List<Employee> sortById();
 
 }

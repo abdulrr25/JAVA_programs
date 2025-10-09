@@ -1,9 +1,11 @@
 package com.demo.service;
-import java.util.*;
-import com.demo.beans.*;
+
+import java.util.List;
+
+import com.demo.beans.Employee;
 
 public interface EmployeeService {
-	
+
 	boolean addNewEmployee();
 
 	List<Employee> displayAll();
@@ -14,14 +16,14 @@ public interface EmployeeService {
 
 	List<Employee> findByName(String nm);
 
-	boolean updateSal(int id, double sal);
+	boolean updateById(int eid, double sal);
 
 	boolean deleteBySalary(double sal);
 
-	List<Employee> searchBySalary(double sal);
+	List<Employee> searchBySal(double sal);
 
-	List<Employee> sortBySalary();
+	List<Employee> sortBySal();
 
-	List<Employee> sortByName();                                                      
+	List<Employee> sortByName();
 
 }

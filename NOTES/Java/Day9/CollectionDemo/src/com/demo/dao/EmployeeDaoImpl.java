@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.demo.beans.Employee;
+import com.demo.comparators.MyNameComparator;
 
 public class EmployeeDaoImpl implements EmployeeDao {
     static List<Employee> elist;
@@ -15,7 +16,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
     	elist.add(new Employee(100,"Manjiri",45678,LocalDate.of(2024, 11, 12)));
     	elist.add(new Employee(101,"Gauri",55678,LocalDate.of(2023, 11, 12)));
     	elist.add(new Employee(103,"Kanchan",35678,LocalDate.of(2020, 11, 12)));
-    	
     }
 	@Override
 	public boolean save(Employee e) {
@@ -29,7 +29,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 	@Override
 	public Employee findById(int eid) {
-
+		//indexOf calls equals method internally 
+		//equals method is written in employee class
 		int pos=elist.indexOf(new Employee(eid));
 		if(pos!=-1) {
 			return elist.get(pos);
@@ -38,12 +39,18 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 	@Override
 	public boolean removeById(int eid) {
-
+		//remove calls equals method internally 
+				//equals method is written in employee class
 		return elist.remove(new Employee(eid));
 	}
 	@Override
 	public List<Employee> findByName(String nm) {
-		
+		/*List<Employee> temp=new ArrayList<>();
+		for(Employee e:elist) {
+			if(e.getEname().equals(nm)) {
+				temp.add(e);
+			}
+		}*/
 		List<Employee> temp= elist.stream()
 		                    .filter(emp->emp.getEname().equals(nm))
 		                    .collect(Collectors.toList());
@@ -54,34 +61,35 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return null;
 	}
 	@Override
-	public boolean updateSal(int id, double sal) {
-		// TODO Auto-generated method stub
-		Employee e=findById(id);
-		if(e!=null) {
-			
-		e.setSal(sal);
+	public boolean modifyById(int eid, double sal) {
+		int pos=elist.indexOf(new Employee(eid));
+		if(pos!=-1) {
+				Employee e= elist.get(pos);
+				e.setSal(sal);
 		return true;
-		}
+	}
 		return false;
 	}
 	@Override
-	public boolean deleteBySalary(double sal) {
-		// TODO Auto-generated method stub
+	public boolean removeBySalary(double sal) {
 		
 		return elist.removeIf(emp->emp.getSal()>sal);
-	}
-	@Override
-	public List<Employee> searchBySalary(double sal) {
-		// TODO Auto-generated method stub
-		List<Employee> lst = elist.stream().filter(emp->emp.getSal()==sal).collect(Collectors.toList());
 		
-		return lst;
 	}
 	@Override
-	public List<Employee> sortBySalary() {
-		// TODO Auto-generated method stub
-		List<Employee> lst = new ArrayList<>();
-		for(Employee e :elist) {
+	public List<Employee> findBySal(double sal) {
+	   List<Employee> lst= elist.stream()
+	   .filter(emp->emp.getSal()==sal)
+	   .collect(Collectors.toList());
+		if (lst.size()>0) {
+			return lst;
+		}
+		return null;
+	}
+	@Override
+	public List<Employee> sortBySal() {
+		List<Employee> lst=new ArrayList<>();
+		for(Employee e:elist) {
 			lst.add(e);
 		}
 		lst.sort(null);
@@ -89,25 +97,33 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 	@Override
 	public List<Employee> sortByName() {
-		// TODO Auto-generated method stub
 		List<Employee> lst=new ArrayList<>();
-		for(Employee e:elist){
+		for(Employee e:elist) {
 			lst.add(e);
 		}
+		//lst.sort(new MyNameComparator());
 		Comparator<Employee> c=(o1,o2)->{
 			System.out.println("In functional comparator");
 			return o1.getEname().compareTo(o2.getEname());
-		
-			
-			
 		};
 		lst.sort(c);
-		
 		return lst;
 	}
-	private Employee getEname() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	@Override
+	@Override
+	public List<Employee> sortById() {
+		List<Employee> lst=new ArrayList<>();
+		for(Employee e:elist) {
+			lst.add(e);
+		}
+		//lst.sort(new MyNameComparator());
+		Comparator<Employee> c=(o1,o2)->{
+			System.out.println("In functional comparator");
+			return o1.getEname().compareTo(o2.getEname());
+		};
+		lst.sort(c);
+		return lst;
 	}
-
+	
 }

@@ -69,7 +69,7 @@ public class EmployeeServiceImp1 implements EmployeeService {
 	}
 
 	@Override
-	public boolean searchBySalary(double sal) {
+	public List<Employee> searchBySalary(double sal) {
 		return edao.searchBySalary(sal);
 	}
 
@@ -77,5 +77,11 @@ public class EmployeeServiceImp1 implements EmployeeService {
 	public List<Employee> sortBySalary() {
 		// TODO Auto-generated method stub
 		return edao.sortBySalary();
+	}
+
+	@Override
+	public List<Employee> sortByName() {
+		// TODO Auto-generated method stub
+		return edao.sortByName();
 	}
 }

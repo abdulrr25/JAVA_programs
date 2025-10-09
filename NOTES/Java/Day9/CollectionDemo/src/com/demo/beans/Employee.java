@@ -16,10 +16,6 @@ public class Employee implements Comparable<Employee> {
 	super();
 	this.empid = empid;
 }
-	public Employee(double sal) {
-	super();
-	this.sal = sal;
-}
 
 	public Employee(int empid, String ename, double sal, LocalDate jdt) {
 		super();
@@ -35,7 +31,8 @@ public class Employee implements Comparable<Employee> {
 		System.out.println("in equals method "+this.empid+"----"+((Employee)obj).empid);
 		return this.empid==((Employee)obj).empid;
 	}
-
+	
+	
 	public int getEmpid() {
 		return empid;
 	}
@@ -77,10 +74,15 @@ public class Employee implements Comparable<Employee> {
 	public int compareTo(Employee ob) {
 		System.out.println("in compareTo method "+this.empid+"----"+ob.empid);
 		System.out.println("Salary---> "+this.sal+"----"+ob.sal);
-		
+		/*if(this.sal<ob.sal)
+			return -1;
+		else if (this.sal==ob.sal)
+			 return 0;
+		else
+			return 1;*/
 		
 		return (int)(this.sal-ob.sal);
-		
+			
 	}
    
 }
