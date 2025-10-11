@@ -1,72 +1,62 @@
 package com.demo.beans;
 
-import java.time.LocalDate;
+public class Student {
 
-public class Student implements Comparable<Student>{
-	private int rollno;
-	private String sname;
-	private double percentage;
-	private LocalDate adt;
+	private int id;
+	private String nm;
+	private int m1;
+	private int m2;
+	private int m3;
 	public Student() {
 		super();
 	}
-	public Student(int rollno, String sname,double percentage, LocalDate adt) {
-		this.rollno=rollno;
-		this.sname=sname;
-		this.percentage = percentage;
-		this.adt=adt;
+	public Student(int id, String nm, int m1, int m2, int m3) {
+		super();
+		this.id = id;
+		this.nm = nm;
+		this.m1 = m1;
+		this.m2 = m2;
+		this.m3 = m3;
 	}
-	public Student(int rollno) {
+	public Student(int id) {
 		// TODO Auto-generated constructor stub
 		super();
-		this.rollno=rollno;
+		this.id=id;
 	}
-	@Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Student student = (Student) obj;
-        return rollno == student.rollno;
-    }
-
-    @Override
-    public int hashCode() {
-        return Integer.hashCode(rollno);
-    }
-	
-	public int getRollno() {
-		return rollno;
+	public int getId() {
+		return id;
 	}
-	public void setRollno(int rollno) {
-		this.rollno = rollno;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getSname() {
-		return sname;
+	public String getNm() {
+		return nm;
 	}
-	public void setSname(String sname) {
-		this.sname = sname;
+	public void setNm(String nm) {
+		this.nm = nm;
 	}
-	public double getPercentage() {
-		return percentage;
+	public int getM1() {
+		return m1;
 	}
-	public void setPercentage(double percentage) {
-		this.percentage = percentage;
+	public void setM1(int m1) {
+		this.m1 = m1;
 	}
-	public LocalDate getAdt() {
-		return adt;
+	public int getM2() {
+		return m2;
 	}
-	public void setAdt(LocalDate adt) {
-		this.adt = adt;
+	public void setM2(int m2) {
+		this.m2 = m2;
+	}
+	public int getM3() {
+		return m3;
+	}
+	public void setM3(int m3) {
+		this.m3 = m3;
 	}
 	@Override
 	public String toString() {
-		return "Student [rollno=" + rollno + ", sname=" + sname + ", percentage=" + percentage + ", adt=" + adt + "]";
+		return "Student [id=" + id + ", nm=" + nm + ", m1=" + m1 + ", m2=" + m2 + ", m3=" + m3 + "]";
 	}
+	
 
-	@Override
-	public int compareTo(Student o) {
-		System.out.println("in compareTo method "+this.percentage+"-----"+o.percentage);
-		//return o.empid-this.empid; //descending order
-		return (int) (this.percentage-o.percentage);
-	}
 }
