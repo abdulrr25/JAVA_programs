@@ -1,9 +1,16 @@
 package com.demo.test;
 
-import java.util.Scanner;
+import com.demo.beans.*;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+import com.demo.beans.Item;
 import com.demo.service.OrderService;
 import com.demo.service.OrderServiceImpl;
+import com.demo.test.*;
 
 public class TestOrdemgntSystem {
 
@@ -26,6 +33,41 @@ public class TestOrdemgntSystem {
 				else {
 					System.out.println("Not Added");
 				}
+			}
+			case 2->{
+				Map<Customer,List<Item>> omap=oservice.displayAll();
+				Set<Customer>keys=omap.keySet();
+				keys.forEach(c->System.out.println(c+"--->"+omap.get(c)));
+				
+			}
+			case 3->{
+				System.out.println("Enter Customer Name : ");
+				String cnm = sc.next();
+				Set<Customer> oset=oservice.displaybyCustomer(cnm);
+				if(oset!=null) {
+					oset.forEach(System.out::println);
+				}
+				else {
+					System.out.println("Not Found");
+				}
+				
+			}
+			case 4->{
+				
+			}
+			case 5->{
+				
+			}
+			case 6->{
+				
+			}
+			case 7->{
+				sc.close();
+				System.out.println("ThankYou for visiting......");
+			}
+			default->{
+				System.out.println("Wrong Choice");
+				
 			}
 			}
 		}while(choice!=7);

@@ -3,12 +3,21 @@ package com.demo.service;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 import com.demo.beans.Customer;
 import com.demo.beans.Item;
 import com.demo.dao.OrderDao;
-
+import com.demo.dao.OrderDaoImpl;
+import java.util.ArrayList;
 public class OrderServiceImpl implements OrderService {
+private OrderDao odao;
+private Object nm;
+    
+	public OrderServiceImpl() {
+		super();
+		odao=new OrderDaoImpl();
+	}
 
 	@Override
 	public boolean addNewCustomer() {
@@ -17,7 +26,7 @@ public class OrderServiceImpl implements OrderService {
 		System.out.println("Enter id : ");
 		int cid=sc.nextInt();
 		System.out.println("Enter Name : ");
-		String nm=sc.next();
+		String nm= sc.next();
 		System.out.println("Enter Mobile: ");
 		String mob=sc.next();
 		Customer c=new Customer(cid,nm,mob);
@@ -40,13 +49,25 @@ public class OrderServiceImpl implements OrderService {
 		}while(ans.equals("y"));
 		
 		
-		return false;
+		return odao.save(c,lst);
 	}
+
+	@Override
+	public Map<Customer, List<Item>> displayAll() {
+		// TODO Auto-generated method stub
+		
+		return odao.findAll();
+	}
+
+	@Override
+	public Set<Customer> displaybyCustomer(String cnm) {
+		// TODO Auto-generated method stub
+		return odao.findByName(nm);
+	}
+
+
 	
-//	@Override
-//	public Map<Customer, List<Item>> displayAll() {
-//		return OrderDao.findAll();
-//	}
+
 
 
 }
