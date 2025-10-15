@@ -7,32 +7,27 @@ import com.demo.exceptions.WrongNumberException;
 public class TestGuessNumber {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int num=45;
-		Scanner sc = new Scanner(System.in);
+		Scanner sc=new Scanner(System.in);
 		while(true) {
 			try {
-				System.out.println("Enter the Number");
-				int n= sc.nextInt();
-				if(num==n) {
-					System.out.println(" Yeahhhhhhhhhhhhh , You got it !!!");
+				System.out.println("enter a number");
+				int num1=sc.nextInt();
+				if(num==num1) {
+					System.out.println("Yepee, You guess it right");
 					break;
+				}else {
+					if(num1<num)
+					   throw new WrongNumberException("OOps, you miss it!! it is smaller number");
+					else
+					   throw new WrongNumberException("OOps, you miss it!! it is greater number");
 				}
-				else {
-					if(num>n) {
-						throw new WrongNumberException("OOPS!! Your Number is a bit higher ");
-					}
-					else {
-						throw new WrongNumberException("OOPS!! Your Number is a bit Small");
-					}
-				}
-				
+			}catch(WrongNumberException e) {
+				System.out.println(e.getMessage());
 			}
-		
-		catch(WrongNumberException e) {
-			System.out.println(e.getMessage());
 		}
-	}
+		
+		
 
 	}
 

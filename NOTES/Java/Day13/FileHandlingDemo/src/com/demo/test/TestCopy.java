@@ -20,13 +20,10 @@ public class TestCopy {
 			}
 			fis.close();
 			fos.close();
-			
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-
 	}
-
 }
